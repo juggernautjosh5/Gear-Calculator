@@ -1,0 +1,539 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		39EB700F1ED8FAAA00AC6A94 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EB700E1ED8FAAA00AC6A94 /* main.m */; };
+		39EB70121ED8FAAA00AC6A94 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EB70111ED8FAAA00AC6A94 /* AppDelegate.m */; };
+		39EB70151ED8FAAA00AC6A94 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EB70141ED8FAAA00AC6A94 /* ViewController.m */; };
+		39EB70181ED8FAAA00AC6A94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39EB70161ED8FAAA00AC6A94 /* Main.storyboard */; };
+		39EB701A1ED8FAAA00AC6A94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39EB70191ED8FAAA00AC6A94 /* Assets.xcassets */; };
+		39EB701D1ED8FAAA00AC6A94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39EB701B1ED8FAAA00AC6A94 /* LaunchScreen.storyboard */; };
+		39EB70281ED8FAAA00AC6A94 /* Gear_CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EB70271ED8FAAA00AC6A94 /* Gear_CalculatorTests.m */; };
+		39EB70331ED8FAAA00AC6A94 /* Gear_CalculatorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EB70321ED8FAAA00AC6A94 /* Gear_CalculatorUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		39EB70241ED8FAAA00AC6A94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39EB70021ED8FAA900AC6A94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39EB70091ED8FAA900AC6A94;
+			remoteInfo = "Gear Calculator";
+		};
+		39EB702F1ED8FAAA00AC6A94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39EB70021ED8FAA900AC6A94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39EB70091ED8FAA900AC6A94;
+			remoteInfo = "Gear Calculator";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		39EB700A1ED8FAAA00AC6A94 /* Gear Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gear Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		39EB700E1ED8FAAA00AC6A94 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		39EB70101ED8FAAA00AC6A94 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		39EB70111ED8FAAA00AC6A94 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		39EB70131ED8FAAA00AC6A94 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		39EB70141ED8FAAA00AC6A94 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		39EB70171ED8FAAA00AC6A94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		39EB70191ED8FAAA00AC6A94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		39EB701C1ED8FAAA00AC6A94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		39EB701E1ED8FAAA00AC6A94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39EB70231ED8FAAA00AC6A94 /* Gear CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gear CalculatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		39EB70271ED8FAAA00AC6A94 /* Gear_CalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Gear_CalculatorTests.m; sourceTree = "<group>"; };
+		39EB70291ED8FAAA00AC6A94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39EB702E1ED8FAAA00AC6A94 /* Gear CalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gear CalculatorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		39EB70321ED8FAAA00AC6A94 /* Gear_CalculatorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Gear_CalculatorUITests.m; sourceTree = "<group>"; };
+		39EB70341ED8FAAA00AC6A94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		39EB70071ED8FAA900AC6A94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39EB70201ED8FAAA00AC6A94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39EB702B1ED8FAAA00AC6A94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		39EB70011ED8FAA900AC6A94 = {
+			isa = PBXGroup;
+			children = (
+				39EB700C1ED8FAAA00AC6A94 /* Gear Calculator */,
+				39EB70261ED8FAAA00AC6A94 /* Gear CalculatorTests */,
+				39EB70311ED8FAAA00AC6A94 /* Gear CalculatorUITests */,
+				39EB700B1ED8FAAA00AC6A94 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		39EB700B1ED8FAAA00AC6A94 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				39EB700A1ED8FAAA00AC6A94 /* Gear Calculator.app */,
+				39EB70231ED8FAAA00AC6A94 /* Gear CalculatorTests.xctest */,
+				39EB702E1ED8FAAA00AC6A94 /* Gear CalculatorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		39EB700C1ED8FAAA00AC6A94 /* Gear Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				39EB70101ED8FAAA00AC6A94 /* AppDelegate.h */,
+				39EB70111ED8FAAA00AC6A94 /* AppDelegate.m */,
+				39EB70131ED8FAAA00AC6A94 /* ViewController.h */,
+				39EB70141ED8FAAA00AC6A94 /* ViewController.m */,
+				39EB70161ED8FAAA00AC6A94 /* Main.storyboard */,
+				39EB70191ED8FAAA00AC6A94 /* Assets.xcassets */,
+				39EB701B1ED8FAAA00AC6A94 /* LaunchScreen.storyboard */,
+				39EB701E1ED8FAAA00AC6A94 /* Info.plist */,
+				39EB700D1ED8FAAA00AC6A94 /* Supporting Files */,
+			);
+			path = "Gear Calculator";
+			sourceTree = "<group>";
+		};
+		39EB700D1ED8FAAA00AC6A94 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				39EB700E1ED8FAAA00AC6A94 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		39EB70261ED8FAAA00AC6A94 /* Gear CalculatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				39EB70271ED8FAAA00AC6A94 /* Gear_CalculatorTests.m */,
+				39EB70291ED8FAAA00AC6A94 /* Info.plist */,
+			);
+			path = "Gear CalculatorTests";
+			sourceTree = "<group>";
+		};
+		39EB70311ED8FAAA00AC6A94 /* Gear CalculatorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				39EB70321ED8FAAA00AC6A94 /* Gear_CalculatorUITests.m */,
+				39EB70341ED8FAAA00AC6A94 /* Info.plist */,
+			);
+			path = "Gear CalculatorUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		39EB70091ED8FAA900AC6A94 /* Gear Calculator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39EB70371ED8FAAA00AC6A94 /* Build configuration list for PBXNativeTarget "Gear Calculator" */;
+			buildPhases = (
+				39EB70061ED8FAA900AC6A94 /* Sources */,
+				39EB70071ED8FAA900AC6A94 /* Frameworks */,
+				39EB70081ED8FAA900AC6A94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Gear Calculator";
+			productName = "Gear Calculator";
+			productReference = 39EB700A1ED8FAAA00AC6A94 /* Gear Calculator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		39EB70221ED8FAAA00AC6A94 /* Gear CalculatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39EB703A1ED8FAAA00AC6A94 /* Build configuration list for PBXNativeTarget "Gear CalculatorTests" */;
+			buildPhases = (
+				39EB701F1ED8FAAA00AC6A94 /* Sources */,
+				39EB70201ED8FAAA00AC6A94 /* Frameworks */,
+				39EB70211ED8FAAA00AC6A94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				39EB70251ED8FAAA00AC6A94 /* PBXTargetDependency */,
+			);
+			name = "Gear CalculatorTests";
+			productName = "Gear CalculatorTests";
+			productReference = 39EB70231ED8FAAA00AC6A94 /* Gear CalculatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		39EB702D1ED8FAAA00AC6A94 /* Gear CalculatorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39EB703D1ED8FAAA00AC6A94 /* Build configuration list for PBXNativeTarget "Gear CalculatorUITests" */;
+			buildPhases = (
+				39EB702A1ED8FAAA00AC6A94 /* Sources */,
+				39EB702B1ED8FAAA00AC6A94 /* Frameworks */,
+				39EB702C1ED8FAAA00AC6A94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				39EB70301ED8FAAA00AC6A94 /* PBXTargetDependency */,
+			);
+			name = "Gear CalculatorUITests";
+			productName = "Gear CalculatorUITests";
+			productReference = 39EB702E1ED8FAAA00AC6A94 /* Gear CalculatorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		39EB70021ED8FAA900AC6A94 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Josh inc";
+				TargetAttributes = {
+					39EB70091ED8FAA900AC6A94 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 3QM4M6CBJS;
+						ProvisioningStyle = Automatic;
+					};
+					39EB70221ED8FAAA00AC6A94 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 3QM4M6CBJS;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 39EB70091ED8FAA900AC6A94;
+					};
+					39EB702D1ED8FAAA00AC6A94 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 3QM4M6CBJS;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 39EB70091ED8FAA900AC6A94;
+					};
+				};
+			};
+			buildConfigurationList = 39EB70051ED8FAA900AC6A94 /* Build configuration list for PBXProject "Gear Calculator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 39EB70011ED8FAA900AC6A94;
+			productRefGroup = 39EB700B1ED8FAAA00AC6A94 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				39EB70091ED8FAA900AC6A94 /* Gear Calculator */,
+				39EB70221ED8FAAA00AC6A94 /* Gear CalculatorTests */,
+				39EB702D1ED8FAAA00AC6A94 /* Gear CalculatorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		39EB70081ED8FAA900AC6A94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39EB701D1ED8FAAA00AC6A94 /* LaunchScreen.storyboard in Resources */,
+				39EB701A1ED8FAAA00AC6A94 /* Assets.xcassets in Resources */,
+				39EB70181ED8FAAA00AC6A94 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39EB70211ED8FAAA00AC6A94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39EB702C1ED8FAAA00AC6A94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		39EB70061ED8FAA900AC6A94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39EB70151ED8FAAA00AC6A94 /* ViewController.m in Sources */,
+				39EB70121ED8FAAA00AC6A94 /* AppDelegate.m in Sources */,
+				39EB700F1ED8FAAA00AC6A94 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39EB701F1ED8FAAA00AC6A94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39EB70281ED8FAAA00AC6A94 /* Gear_CalculatorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39EB702A1ED8FAAA00AC6A94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39EB70331ED8FAAA00AC6A94 /* Gear_CalculatorUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		39EB70251ED8FAAA00AC6A94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 39EB70091ED8FAA900AC6A94 /* Gear Calculator */;
+			targetProxy = 39EB70241ED8FAAA00AC6A94 /* PBXContainerItemProxy */;
+		};
+		39EB70301ED8FAAA00AC6A94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 39EB70091ED8FAA900AC6A94 /* Gear Calculator */;
+			targetProxy = 39EB702F1ED8FAAA00AC6A94 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		39EB70161ED8FAAA00AC6A94 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39EB70171ED8FAAA00AC6A94 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		39EB701B1ED8FAAA00AC6A94 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39EB701C1ED8FAAA00AC6A94 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		39EB70351ED8FAAA00AC6A94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		39EB70361ED8FAAA00AC6A94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		39EB70381ED8FAAA00AC6A94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3QM4M6CBJS;
+				INFOPLIST_FILE = "Gear Calculator/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Josh-inc.Gear-Calculator";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		39EB70391ED8FAAA00AC6A94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3QM4M6CBJS;
+				INFOPLIST_FILE = "Gear Calculator/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Josh-inc.Gear-Calculator";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		39EB703B1ED8FAAA00AC6A94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 3QM4M6CBJS;
+				INFOPLIST_FILE = "Gear CalculatorTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Josh-inc.Gear-CalculatorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gear Calculator.app/Gear Calculator";
+			};
+			name = Debug;
+		};
+		39EB703C1ED8FAAA00AC6A94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 3QM4M6CBJS;
+				INFOPLIST_FILE = "Gear CalculatorTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Josh-inc.Gear-CalculatorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gear Calculator.app/Gear Calculator";
+			};
+			name = Release;
+		};
+		39EB703E1ED8FAAA00AC6A94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 3QM4M6CBJS;
+				INFOPLIST_FILE = "Gear CalculatorUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Josh-inc.Gear-CalculatorUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Gear Calculator";
+			};
+			name = Debug;
+		};
+		39EB703F1ED8FAAA00AC6A94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 3QM4M6CBJS;
+				INFOPLIST_FILE = "Gear CalculatorUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Josh-inc.Gear-CalculatorUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Gear Calculator";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		39EB70051ED8FAA900AC6A94 /* Build configuration list for PBXProject "Gear Calculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39EB70351ED8FAAA00AC6A94 /* Debug */,
+				39EB70361ED8FAAA00AC6A94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39EB70371ED8FAAA00AC6A94 /* Build configuration list for PBXNativeTarget "Gear Calculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39EB70381ED8FAAA00AC6A94 /* Debug */,
+				39EB70391ED8FAAA00AC6A94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		39EB703A1ED8FAAA00AC6A94 /* Build configuration list for PBXNativeTarget "Gear CalculatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39EB703B1ED8FAAA00AC6A94 /* Debug */,
+				39EB703C1ED8FAAA00AC6A94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		39EB703D1ED8FAAA00AC6A94 /* Build configuration list for PBXNativeTarget "Gear CalculatorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39EB703E1ED8FAAA00AC6A94 /* Debug */,
+				39EB703F1ED8FAAA00AC6A94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 39EB70021ED8FAA900AC6A94 /* Project object */;
+}
