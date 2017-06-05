@@ -176,7 +176,7 @@
     [self.TallReduc removeObject:[NSNumber numberWithDouble:0.0]];
     [self.TallReduc removeObject:[NSNumber numberWithDouble:50.0]];
     [self.TallReduc removeObject:[NSNumber numberWithDouble:100.0]];
-    for (int i = 0; i<16; i++) {[self.TGearsHold removeObjectAtIndex:0];}
+    for (int i = 0; i<12; i++) {[self.TGearsHold removeObjectAtIndex:0];}
     
     //for (int i = 0; i<[self.TGearsHold count]; i++) { NSLog(@"%d - %@",i, [self.TGearsHold objectAtIndex:i]);};
     
@@ -184,7 +184,7 @@
     
     
     
-   /* for(int i = 0; i<[self.TallReduc count]; i++){
+    for(int i = 0; i<[self.TallReduc count]; i++){
         for(int j = 0; j<[self.allReduc count]-1; j++){
             NSNumber *sur = [NSNumber numberWithDouble:([[self.TallReduc objectAtIndex:i] doubleValue]*[[self.allReduc objectAtIndex:j] doubleValue])];
             int k = [self findPos:self.QallReduc :sur :0 :[self.QallReduc count]-1];
@@ -195,7 +195,6 @@
             }else if(k==-2){
                 //repeat number - see above
             }else{
-                //NSLog(@"k = %d", k );
                 [self.QallReduc insertObject:sur atIndex:k];
                 [self.QGearsHold insertObject:[self.TGearsHold objectAtIndex:i*6] atIndex:k*8];
                 [self.QGearsHold insertObject:[self.TGearsHold objectAtIndex:i*6+1] atIndex:(k*8)+1];
@@ -205,6 +204,7 @@
                 [self.QGearsHold insertObject:[self.TGearsHold objectAtIndex:i*6+5] atIndex:(k*8)+5];
                 [self.QGearsHold insertObject:[self.GearsHold objectAtIndex:j*2] atIndex:(k*8)+6];
                 [self.QGearsHold insertObject:[self.GearsHold objectAtIndex:j*2+1] atIndex:(k*8)+7];
+                
                 
             }
         }
@@ -216,7 +216,7 @@
     [self.QallReduc removeObject:[NSNumber numberWithDouble:100.0]];
     for (int i = 0; i<16; i++) {[self.QGearsHold removeObjectAtIndex:0];}
     
-    for (int i = 0; i<[self.QGearsHold count]; i++) { NSLog(@"%d - %@",i, [self.QGearsHold objectAtIndex:i]);};
+    //for (int i = 0; i<[self.QGearsHold count]; i++) { NSLog(@"%d - %@",i, [self.QGearsHold objectAtIndex:i]);};
     
     //for (int i = 0; i<[self.QallReduc count]; i++) {NSLog(@"%d - %f", i, [[self.QallReduc objectAtIndex:i] doubleValue]);}*/
 
@@ -332,6 +332,32 @@
                 break;
                 
                 case 4:
+                for(int i = 0; i<[self.QallReduc count]; i++){
+                    
+                    if(fabs([[self.QallReduc objectAtIndex:i] doubleValue] - reduction)<=closRed){
+                        closRed = fabs([[self.QallReduc objectAtIndex:i] doubleValue] - reduction);
+                        finalReduc = closRed+reduction;
+                        [self.closest addObject:[self.QGearsHold objectAtIndex:i*8]];
+                        [self.closest addObject:[self.QGearsHold objectAtIndex:i*8+1]];
+                        [self.closest addObject:[self.QGearsHold objectAtIndex:i*8+2]];
+                        [self.closest addObject:[self.QGearsHold objectAtIndex:i*8+3]];
+                        [self.closest addObject:[self.QGearsHold objectAtIndex:i*8+4]];
+                        [self.closest addObject:[self.QGearsHold objectAtIndex:i*8+5]];
+                        [self.closest addObject:[self.QGearsHold objectAtIndex:i*8+6]];
+                        [self.closest addObject:[self.QGearsHold objectAtIndex:i*8+7]];
+                        [self.closest addObject:[NSNumber numberWithDouble:finalReduc]];
+                        
+                        
+                    } else{
+                        break;
+                    }
+                }
+                //for(int i = 0; i<[self.closest count]; i++){NSLog(@"%@", [self.closest objectAtIndex:i]);}
+                
+                self.outputLabel.text = [NSString stringWithFormat:@"Your Reduction 1:%f or %f:1 ", reduction, 1/reduction];
+                for (int i = [self.closest count]-1; i>=0 && i>[self.closest count]-[self.margin.text integerValue]*9; i-=9) {
+                    self.outputLabel.text = [self.outputLabel.text stringByAppendingString:[NSString stringWithFormat:@"\n(%ld, %ld), (%ld, %ld), (%ld, %ld), (%ld, %ld) This Reduction 1:%f or %f:1", (long)[[self.closest objectAtIndex:i-8] integerValue],(long)[[self.closest objectAtIndex:i-7] integerValue],(long)[[self.closest objectAtIndex:i-6] integerValue],(long)[[self.closest objectAtIndex:i-5] integerValue],(long)[[self.closest objectAtIndex:i-4] integerValue],(long)[[self.closest objectAtIndex:i-3] integerValue], (long)[[self.closest objectAtIndex:i-2] integerValue],(long)[[self.closest objectAtIndex:i-1] integerValue], [[self.closest objectAtIndex:i] doubleValue],1/[[self.closest objectAtIndex:i] doubleValue]]];
+                }
                 break;
                 
                 default:
