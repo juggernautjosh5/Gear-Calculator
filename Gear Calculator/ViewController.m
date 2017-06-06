@@ -27,6 +27,8 @@
 @property (strong, nonatomic) NSMutableArray* TallReduc;
 @property (strong, nonatomic) NSMutableArray* QallReduc;
 
+@property (strong, nonatomic) NSMutableArray* DogGears;
+@property (strong, nonatomic) NSMutableArray* DogGearsReduc;
 
 
 @end
@@ -46,6 +48,9 @@
     self.QallReduc = [[NSMutableArray alloc] init];
     self.QGearsHold = [[NSMutableArray alloc] init];
     self.closest = [[NSMutableArray alloc] init];
+    self.DogGears = [[NSMutableArray alloc] init];
+    self.DogGearsReduc = [[NSMutableArray alloc] init];
+    
     [self.allReduc addObject:[NSNumber numberWithDouble:100.0]];
     [self.allReduc addObject:[NSNumber numberWithDouble:50.0]];
     [self.allReduc addObject:[NSNumber numberWithDouble:0.0]];
@@ -61,6 +66,12 @@
     [self.QallReduc addObject:[NSNumber numberWithDouble:100.0]];
     [self.QallReduc addObject:[NSNumber numberWithDouble:50.0]];
     [self.QallReduc addObject:[NSNumber numberWithDouble:0.0]];
+    
+    [self.DogGears addObject:[NSNumber numberWithInt:40]];
+    [self.DogGears addObject:[NSNumber numberWithInt:44]];
+    [self.DogGears addObject:[NSNumber numberWithInt:50]];
+    [self.DogGears addObject:[NSNumber numberWithInt:40]];
+    
     
     int j = 0;
     for(int i =18; i<85;i+=2){
@@ -364,6 +375,10 @@
                 break;
         }
         
+    } else if (self.segSpeed.selectedSegmentIndex == 1){
+        
+        
+        
     }
    
 }
@@ -408,6 +423,14 @@
             for (int i = [self.closest count]-1; i>=[self.closest count] - 70 ; i-=7) {
                 str = [str stringByAppendingString:[NSString stringWithFormat:@"\n(%ld, %ld), (%ld, %ld), (%ld, %ld) This Reduction 1:%f or %f:1", (long)[[self.closest objectAtIndex:i-6] integerValue],(long)[[self.closest objectAtIndex:i-5] integerValue],(long)[[self.closest objectAtIndex:i-4] integerValue],(long)[[self.closest objectAtIndex:i-3] integerValue],(long)[[self.closest objectAtIndex:i-2] integerValue],(long)[[self.closest objectAtIndex:i-1] integerValue], [[self.closest objectAtIndex:i] doubleValue],1/[[self.closest objectAtIndex:i] doubleValue]]];
             }
+            
+            break;
+            
+        case 4:
+            for (int i = [self.closest count]-1; i>=[self.closest count] - 90; i-=9) {
+                str = [str stringByAppendingString:[NSString stringWithFormat:@"\n(%ld, %ld), (%ld, %ld), (%ld, %ld), (%ld, %ld) This Reduction 1:%f or %f:1", (long)[[self.closest objectAtIndex:i-8] integerValue],(long)[[self.closest objectAtIndex:i-7] integerValue],(long)[[self.closest objectAtIndex:i-6] integerValue],(long)[[self.closest objectAtIndex:i-5] integerValue],(long)[[self.closest objectAtIndex:i-4] integerValue],(long)[[self.closest objectAtIndex:i-3] integerValue], (long)[[self.closest objectAtIndex:i-2] integerValue],(long)[[self.closest objectAtIndex:i-1] integerValue], [[self.closest objectAtIndex:i] doubleValue],1/[[self.closest objectAtIndex:i] doubleValue]]];
+            }
+            break;
             
         default:
             break;
