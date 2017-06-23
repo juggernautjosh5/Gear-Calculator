@@ -516,6 +516,7 @@
 				39EB70391ED8FAAA00AC6A94 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39EB703A1ED8FAAA00AC6A94 /* Build configuration list for PBXNativeTarget "Gear CalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +525,7 @@
 				39EB703C1ED8FAAA00AC6A94 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39EB703D1ED8FAAA00AC6A94 /* Build configuration list for PBXNativeTarget "Gear CalculatorUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +534,7 @@
 				39EB703F1ED8FAAA00AC6A94 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
