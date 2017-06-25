@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Gear Calculator/ViewController.m"
-            timestampString = "519886294.622311"
+            timestampString = "519982584.729176"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "452"
-            endingLineNumber = "452"
+            startingLineNumber = "396"
+            endingLineNumber = "396"
             landmarkName = "-calculate:"
             landmarkType = "7">
          </BreakpointContent>
