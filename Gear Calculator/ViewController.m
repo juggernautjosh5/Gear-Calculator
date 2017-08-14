@@ -7,6 +7,10 @@
 //
 
 #import "ViewController.h"
+#import "AllArrays.h"
+#import "DallReducClass.h"
+#import "DGearsHoldClass.h"
+#import "DGearsHoldClass2.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segSpeed;
@@ -18,15 +22,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *dSpeedOneLab;
 @property (weak, nonatomic) IBOutlet UILabel *stageLab;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSMutableArray* Gears;
-@property (strong, nonatomic) NSMutableArray* GearsHold;
+
 @property (strong, nonatomic) NSMutableArray* DGearsHold;
+
 @property (strong, nonatomic) NSMutableArray* TGearsHold;
 @property (strong, nonatomic) NSMutableArray* QGearsHold;
-@property (strong, nonatomic) NSMutableArray* allReduc;
+
 @property (weak, nonatomic) IBOutlet UILabel *outputLabel;
 @property (strong, nonatomic) NSMutableArray* closest;
-@property (strong, nonatomic) NSMutableArray* DallReduc;
+
+
 @property (strong, nonatomic) NSMutableArray* TallReduc;
 @property (strong, nonatomic) NSMutableArray* QallReduc;
 
@@ -43,12 +48,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AllArrays *AllA = [[AllArrays alloc] init];
+    [AllA begin];
+    [AllA start];
+    DallReducClass *DRC = [[DallReducClass alloc] init];
+    [DRC start];
+    DGearsHoldClass *DGH = [[DGearsHoldClass alloc] init];
+    [DGH start];
+    DGearsHoldClass2 *DGH2 = [[DGearsHoldClass2 alloc] init];
+    [DGH2 start];
+    
     // Do any additional setup after loading the view, typically from a nib.
-    self.Gears = [[NSMutableArray alloc] init];
-    self.GearsHold = [[NSMutableArray alloc] init];
-    self.allReduc = [[NSMutableArray alloc] init];
-    self.DallReduc = [[NSMutableArray alloc] init];
+
     self.DGearsHold = [[NSMutableArray alloc] init];
+    [self.DGearsHold addObjectsFromArray:DGH2.DGearsHold];
+    [self.DGearsHold addObjectsFromArray:DGH.DGearsHold];
+    
     self.TallReduc = [[NSMutableArray alloc] init];
     self.TGearsHold = [[NSMutableArray alloc] init];
     self.QallReduc = [[NSMutableArray alloc] init];
@@ -56,14 +71,6 @@
     self.closest = [[NSMutableArray alloc] init];
     self.DogGears = [[NSMutableArray alloc] init];
     self.DogGearsReduc = [[NSMutableArray alloc] init];
-    
-    [self.allReduc addObject:[NSNumber numberWithDouble:100.0]];
-    [self.allReduc addObject:[NSNumber numberWithDouble:50.0]];
-    [self.allReduc addObject:[NSNumber numberWithDouble:0.0]];
-    
-    [self.DallReduc addObject:[NSNumber numberWithDouble:100.0]];
-    [self.DallReduc addObject:[NSNumber numberWithDouble:50.0]];
-    [self.DallReduc addObject:[NSNumber numberWithDouble:0.0]];
     
     [self.TallReduc addObject:[NSNumber numberWithDouble:100.0]];
     [self.TallReduc addObject:[NSNumber numberWithDouble:50.0]];
@@ -73,101 +80,21 @@
     [self.QallReduc addObject:[NSNumber numberWithDouble:50.0]];
     [self.QallReduc addObject:[NSNumber numberWithDouble:0.0]];
     
-    [self.DogGears addObject:[NSNumber numberWithInt:40]];
-    [self.DogGears addObject:[NSNumber numberWithInt:44]];
-    [self.DogGears addObject:[NSNumber numberWithInt:50]];
-    [self.DogGears addObject:[NSNumber numberWithInt:60]];
+   
     
+    NSString *str = @"";
     
-    int j = 0;
-    for(int i =18; i<85;i+=2){
-        [self.Gears addObject:[NSNumber numberWithInt:i]];
-        j++;
-    }
-    for(int i = 0; i<4; i++) [self.GearsHold addObject: [NSNull null]];
-    for(int i = 0; i<8; i++) [self.DGearsHold addObject: [NSNull null]];
     for(int i = 0; i<12; i++) [self.TGearsHold addObject: [NSNull null]];
     for(int i = 0; i<16; i++) [self.QGearsHold addObject: [NSNull null]];
-
-
-    
-    NSLog(@"GEARS HAS %lu" , (unsigned long)[self.Gears count] );
-    for(int i = 0; i<[self.Gears count]; i++){
-        for(int j = 0; j<[self.Gears count]; j++){
-            NSNumber *sur = [NSNumber numberWithDouble:[[self.Gears objectAtIndex:i] doubleValue] /[[self.Gears objectAtIndex:j] doubleValue]];
-            int k = [self findPos:self.allReduc :sur :0 :[self.allReduc count]-1];
-            if (k == -1) {
-               // NSLog(@"DONE did IT UP");
-                break;
-                break;
-            } else if (k==-2){
-                //means there's a repeat, unneccisary
-            } else{
-                //NSLog(@"k = %d", k );
-                [self.allReduc insertObject:sur atIndex:k];
-                [self.GearsHold insertObject:[self.Gears objectAtIndex:i] atIndex:k*2];
-                [self.GearsHold insertObject:[self.Gears objectAtIndex:j] atIndex:(k*2)+1];
-            }
-            
-
-        }
-    }
-    
-    
-    [self.allReduc removeObject:[NSNumber numberWithDouble:0.0]];
-    [self.allReduc removeObject:[NSNumber numberWithDouble:50.0]];
-    [self.allReduc removeObject:[NSNumber numberWithDouble:100.0]];
-    [self.GearsHold removeObjectAtIndex:0];
-    [self.GearsHold removeObjectAtIndex:0];
-    [self.GearsHold removeObjectAtIndex:0];
-    [self.GearsHold removeObjectAtIndex:0];
+    /*
 
     
-   // for (int i = 0; i<[self.GearsHold count]; i++) { NSLog(@"%d - %@",i, [self.GearsHold objectAtIndex:i]);};
+    
 
-    //for (int i = 0; i<[self.allReduc count]; i++) {NSLog(@"%d - %f", i, [[self.allReduc objectAtIndex:i] doubleValue]);}
     
-    for(int i = 0; i<[self.allReduc count]; i++){
-        for(int j = 0; j<[self.allReduc count]-1; j++){
-            NSNumber *sur = [NSNumber numberWithDouble:([[self.allReduc objectAtIndex:i] doubleValue]*[[self.allReduc objectAtIndex:j] doubleValue])];
-            int k = [self findPos:self.DallReduc :sur :0 :[self.DallReduc count]-1];
-            if (k == -1) {
-                //NSLog(@"DONE did IT UP");
-                break;
-                break;
-            }else if(k==-2){
-                //repeat number - see above
-            }else{
-                //NSLog(@"k = %d", k );
-                [self.DallReduc insertObject:sur atIndex:k];
-                [self.DGearsHold insertObject:[self.GearsHold objectAtIndex:i*2] atIndex:k*4];
-                [self.DGearsHold insertObject:[self.GearsHold objectAtIndex:i*2+1] atIndex:(k*4)+1];
-                [self.DGearsHold insertObject:[self.GearsHold objectAtIndex:j*2] atIndex:(k*4)+2];
-                [self.DGearsHold insertObject:[self.GearsHold objectAtIndex:j*2+1] atIndex:(k*4)+3];
-            }
-        }
-        
-    }
-
-    [self.DallReduc removeObject:[NSNumber numberWithDouble:0.0]];
-    [self.DallReduc removeObject:[NSNumber numberWithDouble:50.0]];
-    [self.DallReduc removeObject:[NSNumber numberWithDouble:100.0]];
-    [self.DGearsHold removeObjectAtIndex:0];
-    [self.DGearsHold removeObjectAtIndex:0];
-    [self.DGearsHold removeObjectAtIndex:0];
-    [self.DGearsHold removeObjectAtIndex:0];
-    [self.DGearsHold removeObjectAtIndex:0];
-    [self.DGearsHold removeObjectAtIndex:0];
-    [self.DGearsHold removeObjectAtIndex:0];
-    [self.DGearsHold removeObjectAtIndex:0];
-    
-    //for (int i = 0; i<[self.DGearsHold count]; i++) { NSLog(@"%d - %@",i, [self.DGearsHold objectAtIndex:i]);};
-    
-    //for (int i = 0; i<[self.DallReduc count]; i++) {NSLog(@"%d - %f", i, [[self.DallReduc objectAtIndex:i] doubleValue]);}
-    
-    for(int i = 0; i<[self.DallReduc count]; i++){
-        for(int j = 0; j<[self.allReduc count]-1; j++){
-            NSNumber *sur = [NSNumber numberWithDouble:([[self.DallReduc objectAtIndex:i] doubleValue]*[[self.allReduc objectAtIndex:j] doubleValue])];
+    for(int i = 0; i<[DRC.DallReduc count]; i++){
+        for(int j = 0; j<[AllA.allReduc count]-1; j++){
+            NSNumber *sur = [NSNumber numberWithDouble:([[DRC.DallReduc objectAtIndex:i] doubleValue]*[[AllA.allReduc objectAtIndex:j] doubleValue])];
             int k = [self findPos:self.TallReduc :sur :0 :[self.TallReduc count]-1];
             if (k == -1) {
                 //NSLog(@"DONE did IT UP");
@@ -182,8 +109,8 @@
                 [self.TGearsHold insertObject:[self.DGearsHold objectAtIndex:i*4+1] atIndex:(k*6)+1];
                 [self.TGearsHold insertObject:[self.DGearsHold objectAtIndex:i*4+2] atIndex:(k*6)+2];
                 [self.TGearsHold insertObject:[self.DGearsHold objectAtIndex:i*4+3] atIndex:(k*6)+3];
-                [self.TGearsHold insertObject:[self.GearsHold objectAtIndex:j*2] atIndex:(k*6)+4];
-                [self.TGearsHold insertObject:[self.GearsHold objectAtIndex:j*2+1] atIndex:(k*6)+5];
+                [self.TGearsHold insertObject:[AllA.GearsHold objectAtIndex:j*2] atIndex:(k*6)+4];
+                [self.TGearsHold insertObject:[AllA.GearsHold objectAtIndex:j*2+1] atIndex:(k*6)+5];
 
             }
         }
@@ -199,7 +126,11 @@
     
     //for (int i = 0; i<[self.TallReduc count]; i++) {NSLog(@"%d - %f", i, [[self.TallReduc objectAtIndex:i] doubleValue]);}
     
-    
+    for (int i = 0; i <[self.TallReduc count]; i++) {
+        str = [str stringByAppendingString:[NSString stringWithFormat:@"@%@,",[self.TallReduc objectAtIndex:i]]];
+    }
+    NSLog(@"%@", str);
+
     
     /*for(int i = 0; i<[self.TallReduc count]; i++){
         for(int j = 0; j<[self.allReduc count]-1; j++){
@@ -236,11 +167,14 @@
     //for (int i = 0; i<[self.QGearsHold count]; i++) { NSLog(@"%d - %@",i, [self.QGearsHold objectAtIndex:i]);};
     
     //for (int i = 0; i<[self.QallReduc count]; i++) {NSLog(@"%d - %f", i, [[self.QallReduc objectAtIndex:i] doubleValue]);}*/
-    
+    [self.DogGears addObject:[NSNumber numberWithInt:40]];
+    [self.DogGears addObject:[NSNumber numberWithInt:44]];
+    [self.DogGears addObject:[NSNumber numberWithInt:50]];
+    [self.DogGears addObject:[NSNumber numberWithInt:60]];
     for (int i= 0; i<[self.DogGears count]; i++) {
         NSMutableArray *sta = [[NSMutableArray alloc] init];
-        for (int j = 0; j<[self.Gears count]; j++) {
-            [sta addObject:[NSNumber numberWithDouble:[[self.DogGears objectAtIndex:i] doubleValue]/[[self.Gears objectAtIndex:j] doubleValue]]];
+        for (int j = 0; j<[AllA.Gears count]; j++) {
+            [sta addObject:[NSNumber numberWithDouble:[[self.DogGears objectAtIndex:i] doubleValue]/[[AllA.Gears objectAtIndex:j] doubleValue]]];
         }
         [self.DogGearsReduc addObject:sta];
     }
@@ -263,18 +197,22 @@
         self.dReductionTwo.hidden = true;
         self.dSpeedTwoLab.hidden = true;
         self.dSpeedOneLab.text = @"Desired Reduction";
-        self.stageLab.text = @"Number of stages (1-3)";
+        self.stageLab.text = @"Number of stages (1-2)";
     } else{
         self.dReductionTwo.hidden = false;
         self.dSpeedTwoLab.hidden = false;
         self.dSpeedOneLab.text = @"Smaller Reduction";
-        self.stageLab.text = @"Number of stages (1-4)";
+        self.stageLab.text = @"Number of stages (1-3)";
     
     }
 }
 
 
 - (IBAction)calculate:(id)sender {
+    AllArrays *AllA = [[AllArrays alloc] init];
+    [AllA start];
+    DallReducClass *DRC = [[DallReducClass alloc] init];
+    [DRC start];
 
     [self.closest removeAllObjects];
     double closRed = NSIntegerMax;
@@ -288,10 +226,10 @@
         
         switch (self.stages.text.integerValue){
                 case 1:
-                for(int i = 0; i<[self.allReduc count]; i++){
-                    if(fabs([[self.allReduc objectAtIndex:i] doubleValue] - reduction)<=closRed){
-                        closRed = fabs([[self.allReduc objectAtIndex:i] doubleValue] - reduction);
-                        [self.closest addObject:[NSString stringWithFormat:@"%f - (%@,%@)", 1/fabs([[self.allReduc objectAtIndex:i] doubleValue]), [self.GearsHold objectAtIndex:i*2], [self.GearsHold objectAtIndex:i*2+1]]];
+                for(int i = 0; i<[AllA.allReduc count]; i++){
+                    if(fabs([[AllA.allReduc objectAtIndex:i] doubleValue] - reduction)<=closRed){
+                        closRed = fabs([[AllA.allReduc objectAtIndex:i] doubleValue] - reduction);
+                        [self.closest addObject:[NSString stringWithFormat:@"%f - (%@,%@)", 1/fabs([[AllA.allReduc objectAtIndex:i] doubleValue]), [AllA.GearsHold objectAtIndex:i*2], [AllA.GearsHold objectAtIndex:i*2+1]]];
                         
                         
                     } else{
@@ -305,11 +243,10 @@
                 
                 case 2:
                 
-                for(int i = 0; i<[self.DallReduc count]; i++){
-                    if(fabs([[self.DallReduc objectAtIndex:i] doubleValue] - reduction)<=closRed){
-                        closRed = fabs([[self.DallReduc objectAtIndex:i] doubleValue] - reduction);
-                        finalReducOne = closRed+reduction;
-                        [self.closest addObject:[NSString stringWithFormat:@"%f - (%@,%@), (%@,%@)", 1/fabs([[self.DallReduc objectAtIndex:i] doubleValue]), [self.DGearsHold objectAtIndex:i*4], [self.DGearsHold objectAtIndex:i*4+1],[self.DGearsHold objectAtIndex:i*4+2],[self.DGearsHold objectAtIndex:i*4+3]]];
+                for(int i = 0; i<[DRC.DallReduc count]; i++){
+                    if(fabs([[DRC.DallReduc objectAtIndex:i] doubleValue] - reduction)<=closRed){
+                        closRed = fabs([[DRC.DallReduc objectAtIndex:i] doubleValue] - reduction);
+                        [self.closest addObject:[NSString stringWithFormat:@"%f - (%@,%@), (%@,%@)", 1/fabs([[DRC.DallReduc objectAtIndex:i] doubleValue]), [self.DGearsHold objectAtIndex:i*4], [self.DGearsHold objectAtIndex:i*4+1],[self.DGearsHold objectAtIndex:i*4+2],[self.DGearsHold objectAtIndex:i*4+3]]];
                         
                     } else{
                         break;
@@ -324,7 +261,6 @@
 
                     if(fabs([[self.TallReduc objectAtIndex:i] doubleValue] - reduction)<=closRed){
                         closRed = fabs([[self.TallReduc objectAtIndex:i] doubleValue] - reduction);
-                        finalReducOne = closRed+reduction;
                         [self.closest addObject:[NSString stringWithFormat:@"%f - (%@,%@), (%@,%@), (%@,%@)", 1/fabs([[self.TallReduc objectAtIndex:i] doubleValue]), [self.TGearsHold objectAtIndex:i*6], [self.TGearsHold objectAtIndex:i*6+1],[self.TGearsHold objectAtIndex:i*6+2],[self.TGearsHold objectAtIndex:i*6+3],[self.TGearsHold objectAtIndex:i*6+4],[self.TGearsHold objectAtIndex:i*6+5]]];
                         
                         
@@ -365,14 +301,14 @@
                 case 1:
                 for(int i = 0; i<[self.DogGearsReduc count]; i++){
                     for (int j = 0; j<[[self.DogGearsReduc objectAtIndex:i] count]; j++) {
-                        toothSum = [[self.Gears objectAtIndex:j] intValue];
+                        toothSum = [[AllA.Gears objectAtIndex:j] intValue];
                         
                         ratioTwo = [self findSecGearRatio:toothSum :i];
                         if(fabs([[[self.DogGearsReduc objectAtIndex:i] objectAtIndex:j] doubleValue] - reductionOne) + fabs(ratioTwo-reductionTwo) <= closRed && ratioTwo!= NSIntegerMax){
                             closRed = fabs([[[self.DogGearsReduc objectAtIndex:i] objectAtIndex:j] doubleValue] - reductionOne) + fabs(ratioTwo-reductionTwo);
                             finalReducOne = [[[self.DogGearsReduc objectAtIndex:i] objectAtIndex:j] doubleValue];
                             finalReducTwo = ratioTwo;
-                            [self.closest addObject:[NSString stringWithFormat:@"%f - (%@,%@) \n%f - (%ld,%ld)",1/finalReducOne,[self.DogGears objectAtIndex:i],[self.Gears objectAtIndex:j], 1/finalReducTwo, (long)self.secondDogGear, (long)self.secondRegGear]];
+                            [self.closest addObject:[NSString stringWithFormat:@"%f - (%@,%@) \n%f - (%ld,%ld)",1/finalReducOne,[self.DogGears objectAtIndex:i],[AllA.Gears objectAtIndex:j], 1/finalReducTwo, (long)self.secondDogGear, (long)self.secondRegGear]];
 
                            
                         }
@@ -386,19 +322,19 @@
                 case 2:
                 for(int i = 0; i<[self.DogGearsReduc count]; i++){
                     for (int j = 0; j<[[self.DogGearsReduc objectAtIndex:i] count]; j++) {
-                        toothSum = [[self.Gears objectAtIndex:j] intValue];
+                        toothSum = [[AllA.Gears objectAtIndex:j] intValue];
 
                         ratioTwo = [self findSecGearRatio:toothSum :i];
 
 
-                        for(int k = 0; k<[self.allReduc count]; k++){
+                        for(int k = 0; k<[AllA.allReduc count]; k++){
 
-                            if(fabs([[[self.DogGearsReduc objectAtIndex:i] objectAtIndex:j] doubleValue]*[[self.allReduc objectAtIndex:k] doubleValue] - reductionOne) + fabs(ratioTwo*[[self.allReduc objectAtIndex:k] doubleValue]-reductionTwo) <= closRed && ratioTwo!= NSIntegerMax){
-                                closRed = fabs([[[self.DogGearsReduc objectAtIndex:i] objectAtIndex:j] doubleValue]*[[self.allReduc objectAtIndex:k] doubleValue] - reductionOne) + fabs(ratioTwo*[[self.allReduc objectAtIndex:k] doubleValue]-reductionTwo);
+                            if(fabs([[[self.DogGearsReduc objectAtIndex:i] objectAtIndex:j] doubleValue]*[[AllA.allReduc objectAtIndex:k] doubleValue] - reductionOne) + fabs(ratioTwo*[[AllA.allReduc objectAtIndex:k] doubleValue]-reductionTwo) <= closRed && ratioTwo!= NSIntegerMax){
+                                closRed = fabs([[[self.DogGearsReduc objectAtIndex:i] objectAtIndex:j] doubleValue]*[[AllA.allReduc objectAtIndex:k] doubleValue] - reductionOne) + fabs(ratioTwo*[[AllA.allReduc objectAtIndex:k] doubleValue]-reductionTwo);
 
-                                finalReducOne = [[[self.DogGearsReduc objectAtIndex:i] objectAtIndex:j] doubleValue]*[[self.allReduc objectAtIndex:k] doubleValue];
-                                finalReducTwo = ratioTwo*[[self.allReduc objectAtIndex:k] doubleValue];
-                                [self.closest addObject:[NSString stringWithFormat:@"%f - (%@,%@), (%@,%@) \n%f - (%ld,%ld)",1/finalReducOne,[self.DogGears objectAtIndex:i],[self.Gears objectAtIndex:j],[self.GearsHold objectAtIndex:(k*2)],[self.GearsHold objectAtIndex:(k*2)+1], 1/finalReducTwo, (long)self.secondDogGear, (long)self.secondRegGear]];
+                                finalReducOne = [[[self.DogGearsReduc objectAtIndex:i] objectAtIndex:j] doubleValue]*[[AllA.allReduc objectAtIndex:k] doubleValue];
+                                finalReducTwo = ratioTwo*[[AllA.allReduc objectAtIndex:k] doubleValue];
+                                [self.closest addObject:[NSString stringWithFormat:@"%f - (%@,%@), (%@,%@) \n%f - (%ld,%ld)",1/finalReducOne,[self.DogGears objectAtIndex:i],[AllA.Gears objectAtIndex:j],[AllA.GearsHold objectAtIndex:(k*2)],[AllA.GearsHold objectAtIndex:(k*2)+1], 1/finalReducTwo, (long)self.secondDogGear, (long)self.secondRegGear]];
                                 
 
                                 
@@ -416,18 +352,18 @@
             case 3:
                 for(int i = 0; i<[self.DogGearsReduc count]; i++){
                     for (int j = 0; j<[[self.DogGearsReduc objectAtIndex:i] count]; j++) {
-                        toothSum = [[self.Gears objectAtIndex:j] intValue];
+                        toothSum = [[AllA.Gears objectAtIndex:j] intValue];
                         ratioTwo = [self findSecGearRatio:toothSum :i];
                         
-                        for(int k = 0; k<[self.DallReduc count]; k++){
+                        for(int k = 0; k<[DRC.DallReduc count]; k++){
                             
-                            if(fabs([[[self.DogGearsReduc objectAtIndex:i] objectAtIndex:j] doubleValue]*[[self.DallReduc objectAtIndex:k] doubleValue] - reductionOne) + fabs(ratioTwo*[[self.DallReduc objectAtIndex:k] doubleValue]-reductionTwo) <= closRed && ratioTwo!= NSIntegerMax){
-                                closRed = fabs([[[self.DogGearsReduc objectAtIndex:i] objectAtIndex:j] doubleValue]*[[self.DallReduc objectAtIndex:k] doubleValue] - reductionOne) + fabs(ratioTwo*[[self.DallReduc objectAtIndex:k] doubleValue]-reductionTwo);
+                            if(fabs([[[self.DogGearsReduc objectAtIndex:i] objectAtIndex:j] doubleValue]*[[DRC.DallReduc objectAtIndex:k] doubleValue] - reductionOne) + fabs(ratioTwo*[[DRC.DallReduc objectAtIndex:k] doubleValue]-reductionTwo) <= closRed && ratioTwo!= NSIntegerMax){
+                                closRed = fabs([[[self.DogGearsReduc objectAtIndex:i] objectAtIndex:j] doubleValue]*[[DRC.DallReduc objectAtIndex:k] doubleValue] - reductionOne) + fabs(ratioTwo*[[DRC.DallReduc objectAtIndex:k] doubleValue]-reductionTwo);
                                 
-                                finalReducOne = [[[self.DogGearsReduc objectAtIndex:i] objectAtIndex:j] doubleValue]*[[self.DallReduc objectAtIndex:k] doubleValue];
-                                finalReducTwo = ratioTwo*[[self.DallReduc objectAtIndex:k] doubleValue];
+                                finalReducOne = [[[self.DogGearsReduc objectAtIndex:i] objectAtIndex:j] doubleValue]*[[DRC.DallReduc objectAtIndex:k] doubleValue];
+                                finalReducTwo = ratioTwo*[[DRC.DallReduc objectAtIndex:k] doubleValue];
 
-                                [self.closest addObject:[NSString stringWithFormat:@"%f - (%@,%@), (%@,%@), (%@,%@) \n%f - (%ld,%ld)",1/finalReducOne,[self.DogGears objectAtIndex:i],[self.Gears objectAtIndex:j],[self.DGearsHold objectAtIndex:(k*4)],[self.DGearsHold objectAtIndex:(k*4)+1], [self.DGearsHold objectAtIndex:(k*4)+2],[self.DGearsHold objectAtIndex:(k*4)+3], 1/finalReducTwo, (long)self.secondDogGear, (long)self.secondRegGear]];
+                                [self.closest addObject:[NSString stringWithFormat:@"%f - (%@,%@), (%@,%@), (%@,%@) \n%f - (%ld,%ld)",1/finalReducOne,[self.DogGears objectAtIndex:i],[AllA.Gears objectAtIndex:j],[self.DGearsHold objectAtIndex:(k*4)],[self.DGearsHold objectAtIndex:(k*4)+1], [self.DGearsHold objectAtIndex:(k*4)+2],[self.DGearsHold objectAtIndex:(k*4)+3], 1/finalReducTwo, (long)self.secondDogGear, (long)self.secondRegGear]];
 
                             }
                         }
@@ -443,7 +379,7 @@
             case 4:
                 for(int i = 0; i<[self.DogGearsReduc count]; i++){
                     for (int j = 0; j<[[self.DogGearsReduc objectAtIndex:i] count]; j++) {
-                        toothSum = [[self.Gears objectAtIndex:j] intValue];
+                        toothSum = [[AllA.Gears objectAtIndex:j] intValue];
                         //NSLog(@"Tooth Gear: %d", toothSum);
                         //NSLog(@"I: %d", i);
                         ratioTwo = [self findSecGearRatio:toothSum :i];
@@ -456,7 +392,7 @@
                                 
                                 finalReducOne = [[[self.DogGearsReduc objectAtIndex:i] objectAtIndex:j] doubleValue]*[[self.TallReduc objectAtIndex:k] doubleValue];
                                 finalReducTwo = ratioTwo*[[self.TallReduc objectAtIndex:k] doubleValue];
-                                [self.closest addObject:[NSString stringWithFormat:@"%f - (%@,%@), (%@,%@), (%@,%@), (%@,%@) \n%f - (%ld,%ld)",1/finalReducOne,[self.DogGears objectAtIndex:i],[self.Gears objectAtIndex:j],[self.TGearsHold objectAtIndex:(k*6)],[self.TGearsHold objectAtIndex:(k*6)+1], [self.TGearsHold objectAtIndex:(k*6)+2],[self.TGearsHold objectAtIndex:(k*6)+3],[self.TGearsHold objectAtIndex:(k*6)+4],[self.TGearsHold objectAtIndex:(k*6)+5], 1/finalReducTwo, (long)self.secondDogGear, (long)self.secondRegGear]];
+                                [self.closest addObject:[NSString stringWithFormat:@"%f - (%@,%@), (%@,%@), (%@,%@), (%@,%@) \n%f - (%ld,%ld)",1/finalReducOne,[self.DogGears objectAtIndex:i],[AllA.Gears objectAtIndex:j],[self.TGearsHold objectAtIndex:(k*6)],[self.TGearsHold objectAtIndex:(k*6)+1], [self.TGearsHold objectAtIndex:(k*6)+2],[self.TGearsHold objectAtIndex:(k*6)+3],[self.TGearsHold objectAtIndex:(k*6)+4],[self.TGearsHold objectAtIndex:(k*6)+5], 1/finalReducTwo, (long)self.secondDogGear, (long)self.secondRegGear]];
 
                                 
                             }
@@ -480,9 +416,11 @@
 }
 
 
-- (int)findPos:(NSMutableArray*) arr :(NSNumber*) nums: (NSInteger) start: (NSInteger) end{
+- (int)findPos:(NSMutableArray*)arr :(NSNumber*)nums :(NSInteger)start :(NSInteger) end{
     int mid = ((int)start + (int)end)/2 ;
-    if([[arr objectAtIndex:mid] doubleValue] > [nums doubleValue] && [nums doubleValue]>[[arr objectAtIndex:mid+1] doubleValue] ){
+    if(fabs([[arr objectAtIndex:mid] doubleValue] - [nums doubleValue])==0){
+        return -2;
+    }else if([[arr objectAtIndex:mid] doubleValue] > [nums doubleValue] && [nums doubleValue]>[[arr objectAtIndex:mid+1] doubleValue] ){
         return mid+1;
     } else if(mid == 0){
         return mid;
@@ -490,9 +428,9 @@
         return [self findPos:arr :nums :mid :end];
     } else if([[arr objectAtIndex:mid] doubleValue] < [nums doubleValue]){
         return [self findPos:arr :nums :start :mid];
-    } else if([[arr objectAtIndex:mid] doubleValue] == [nums doubleValue] && [nums doubleValue]==[[arr objectAtIndex:mid+1] doubleValue] ) {
+    } /*else if([[arr objectAtIndex:mid] doubleValue] == [nums doubleValue] && [nums doubleValue]==[[arr objectAtIndex:mid+1] doubleValue] ) {
         return -2;
-    }else{
+    }*/else{
         return -1;
     }
     
@@ -508,6 +446,8 @@
     double RatioOne = NSIntegerMax;
     double RatioTwo = NSIntegerMax;
     double RatioThree = NSIntegerMax;
+    AllArrays *AllA = [[AllArrays alloc] init];
+    [AllA start];
     //NSLog(@"findSecGearRatio");
     
     switch (gearIndex) {
@@ -515,15 +455,15 @@
             
             if(sumTooth>=22){
                 GearOne = sumTooth-4;
-                RatioOne = [[[self.DogGearsReduc objectAtIndex:1] objectAtIndex:[self.Gears indexOfObject:[NSNumber numberWithInt:GearOne]]] doubleValue];
+                RatioOne = [[[self.DogGearsReduc objectAtIndex:1] objectAtIndex:[AllA.Gears indexOfObject:[NSNumber numberWithInt:GearOne]]] doubleValue];
             }
             if(sumTooth>=28){
                 GearTwo = sumTooth-10;
-                RatioTwo = [[[self.DogGearsReduc objectAtIndex:2] objectAtIndex:[self.Gears indexOfObject:[NSNumber numberWithInt:GearTwo]]] doubleValue];
+                RatioTwo = [[[self.DogGearsReduc objectAtIndex:2] objectAtIndex:[AllA.Gears indexOfObject:[NSNumber numberWithInt:GearTwo]]] doubleValue];
             };
             if(sumTooth>=38){
                 GearThree = sumTooth-20;
-                RatioThree = [[[self.DogGearsReduc objectAtIndex:3] objectAtIndex:[self.Gears indexOfObject:[NSNumber numberWithInt:GearThree]]] doubleValue];
+                RatioThree = [[[self.DogGearsReduc objectAtIndex:3] objectAtIndex:[AllA.Gears indexOfObject:[NSNumber numberWithInt:GearThree]]] doubleValue];
             };
             
             
@@ -551,15 +491,15 @@
             
             if(sumTooth<=78){
                 GearOne = sumTooth+4;
-                RatioOne = [[[self.DogGearsReduc objectAtIndex:0] objectAtIndex:[self.Gears indexOfObject:[NSNumber numberWithInt:GearOne]]] doubleValue];
+                RatioOne = [[[self.DogGearsReduc objectAtIndex:0] objectAtIndex:[AllA.Gears indexOfObject:[NSNumber numberWithInt:GearOne]]] doubleValue];
             }
             if(sumTooth>=24){
                 GearTwo = sumTooth-6;
-                RatioTwo = [[[self.DogGearsReduc objectAtIndex:2] objectAtIndex:[self.Gears indexOfObject:[NSNumber numberWithInt:GearTwo]]] doubleValue];
+                RatioTwo = [[[self.DogGearsReduc objectAtIndex:2] objectAtIndex:[AllA.Gears indexOfObject:[NSNumber numberWithInt:GearTwo]]] doubleValue];
             };
             if(sumTooth>=34){
                 GearThree = sumTooth-16;
-                RatioThree = [[[self.DogGearsReduc objectAtIndex:3] objectAtIndex:[self.Gears indexOfObject:[NSNumber numberWithInt:GearThree]]] doubleValue];
+                RatioThree = [[[self.DogGearsReduc objectAtIndex:3] objectAtIndex:[AllA.Gears indexOfObject:[NSNumber numberWithInt:GearThree]]] doubleValue];
             };
             
             if(fabs(RatioOne-reductionTwo)<=fabs(RatioTwo-reductionTwo) && fabs(RatioOne-reductionTwo)<=fabs(RatioThree-reductionTwo)){
@@ -585,15 +525,15 @@
 
             if (sumTooth<= 74) {
                 GearOne = sumTooth+10;
-                RatioOne = [[[self.DogGearsReduc objectAtIndex:0] objectAtIndex:[self.Gears indexOfObject:[NSNumber numberWithInt:GearOne]]] doubleValue];
+                RatioOne = [[[self.DogGearsReduc objectAtIndex:0] objectAtIndex:[AllA.Gears indexOfObject:[NSNumber numberWithInt:GearOne]]] doubleValue];
             }
             if(sumTooth<= 78){
                 GearTwo = sumTooth+6;
-                RatioTwo = [[[self.DogGearsReduc objectAtIndex:1] objectAtIndex:[self.Gears indexOfObject:[NSNumber numberWithInt:GearTwo]]] doubleValue];
+                RatioTwo = [[[self.DogGearsReduc objectAtIndex:1] objectAtIndex:[AllA.Gears indexOfObject:[NSNumber numberWithInt:GearTwo]]] doubleValue];
             }
             if(sumTooth>=28){
                 GearThree = sumTooth-10;
-                RatioThree = [[[self.DogGearsReduc objectAtIndex:3] objectAtIndex:[self.Gears indexOfObject:[NSNumber numberWithInt:GearThree]]] doubleValue];
+                RatioThree = [[[self.DogGearsReduc objectAtIndex:3] objectAtIndex:[AllA.Gears indexOfObject:[NSNumber numberWithInt:GearThree]]] doubleValue];
             };
             
             if(fabs(RatioOne-reductionTwo)<=fabs(RatioTwo-reductionTwo) && fabs(RatioOne-reductionTwo)<=fabs(RatioThree-reductionTwo)){
@@ -619,15 +559,15 @@
             
             if (sumTooth<=64) {
                 GearOne = sumTooth+20;
-                RatioOne = [[[self.DogGearsReduc objectAtIndex:0] objectAtIndex:[self.Gears indexOfObject:[NSNumber numberWithInt:GearOne]]] doubleValue];
+                RatioOne = [[[self.DogGearsReduc objectAtIndex:0] objectAtIndex:[AllA.Gears indexOfObject:[NSNumber numberWithInt:GearOne]]] doubleValue];
             }
             if (sumTooth<=68) {
                 GearTwo = sumTooth + 16;
-                RatioTwo = [[[self.DogGearsReduc objectAtIndex:1] objectAtIndex:[self.Gears indexOfObject:[NSNumber numberWithInt:GearTwo]]] doubleValue];
+                RatioTwo = [[[self.DogGearsReduc objectAtIndex:1] objectAtIndex:[AllA.Gears indexOfObject:[NSNumber numberWithInt:GearTwo]]] doubleValue];
             }
             if (sumTooth<=74) {
                 GearThree = sumTooth + 10;
-                RatioThree = [[[self.DogGearsReduc objectAtIndex:2] objectAtIndex:[self.Gears indexOfObject:[NSNumber numberWithInt:GearThree]]] doubleValue];
+                RatioThree = [[[self.DogGearsReduc objectAtIndex:2] objectAtIndex:[AllA.Gears indexOfObject:[NSNumber numberWithInt:GearThree]]] doubleValue];
             }
             
             if(fabs(RatioOne-reductionTwo)<fabs(RatioTwo-reductionTwo) && fabs(RatioOne-reductionTwo)<fabs(RatioThree-reductionTwo)){

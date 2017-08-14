@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39C572C51F3FC6E900F46862 /* AllArrays.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C572C41F3FC6E900F46862 /* AllArrays.m */; };
+		39C572C71F3FD55000F46862 /* Holder.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C572C61F3FD55000F46862 /* Holder.m */; };
+		39C572CD1F40CFE000F46862 /* DallReducClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C572CC1F40CFE000F46862 /* DallReducClass.m */; };
+		39C572D01F40D06000F46862 /* DGearsHoldClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C572CF1F40D06000F46862 /* DGearsHoldClass.m */; };
+		39C572D31F40DAFF00F46862 /* DGearsHoldClass2.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C572D21F40DAFF00F46862 /* DGearsHoldClass2.m */; };
 		39EB700F1ED8FAAA00AC6A94 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EB700E1ED8FAAA00AC6A94 /* main.m */; };
 		39EB70121ED8FAAA00AC6A94 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EB70111ED8FAAA00AC6A94 /* AppDelegate.m */; };
 		39EB70151ED8FAAA00AC6A94 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EB70141ED8FAAA00AC6A94 /* ViewController.m */; };
@@ -35,6 +40,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		39C572C31F3FC6E900F46862 /* AllArrays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllArrays.h; sourceTree = "<group>"; };
+		39C572C41F3FC6E900F46862 /* AllArrays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllArrays.m; sourceTree = "<group>"; };
+		39C572C61F3FD55000F46862 /* Holder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Holder.m; sourceTree = "<group>"; };
+		39C572CB1F40CFE000F46862 /* DallReducClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DallReducClass.h; sourceTree = "<group>"; };
+		39C572CC1F40CFE000F46862 /* DallReducClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DallReducClass.m; sourceTree = "<group>"; };
+		39C572CE1F40D06000F46862 /* DGearsHoldClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGearsHoldClass.h; sourceTree = "<group>"; };
+		39C572CF1F40D06000F46862 /* DGearsHoldClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGearsHoldClass.m; sourceTree = "<group>"; };
+		39C572D11F40DAFF00F46862 /* DGearsHoldClass2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGearsHoldClass2.h; sourceTree = "<group>"; };
+		39C572D21F40DAFF00F46862 /* DGearsHoldClass2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGearsHoldClass2.m; sourceTree = "<group>"; };
 		39EB700A1ED8FAAA00AC6A94 /* Gear Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gear Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39EB700E1ED8FAAA00AC6A94 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		39EB70101ED8FAAA00AC6A94 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -105,6 +119,15 @@
 				39EB70111ED8FAAA00AC6A94 /* AppDelegate.m */,
 				39EB70131ED8FAAA00AC6A94 /* ViewController.h */,
 				39EB70141ED8FAAA00AC6A94 /* ViewController.m */,
+				39C572C31F3FC6E900F46862 /* AllArrays.h */,
+				39C572C41F3FC6E900F46862 /* AllArrays.m */,
+				39C572CB1F40CFE000F46862 /* DallReducClass.h */,
+				39C572CC1F40CFE000F46862 /* DallReducClass.m */,
+				39C572CE1F40D06000F46862 /* DGearsHoldClass.h */,
+				39C572CF1F40D06000F46862 /* DGearsHoldClass.m */,
+				39C572D11F40DAFF00F46862 /* DGearsHoldClass2.h */,
+				39C572D21F40DAFF00F46862 /* DGearsHoldClass2.m */,
+				39C572C61F3FD55000F46862 /* Holder.m */,
 				39EB70161ED8FAAA00AC6A94 /* Main.storyboard */,
 				39EB70191ED8FAAA00AC6A94 /* Assets.xcassets */,
 				39EB701B1ED8FAAA00AC6A94 /* LaunchScreen.storyboard */,
@@ -277,8 +300,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				39EB70151ED8FAAA00AC6A94 /* ViewController.m in Sources */,
+				39C572C51F3FC6E900F46862 /* AllArrays.m in Sources */,
+				39C572D31F40DAFF00F46862 /* DGearsHoldClass2.m in Sources */,
 				39EB70121ED8FAAA00AC6A94 /* AppDelegate.m in Sources */,
+				39C572CD1F40CFE000F46862 /* DallReducClass.m in Sources */,
 				39EB700F1ED8FAAA00AC6A94 /* main.m in Sources */,
+				39C572C71F3FD55000F46862 /* Holder.m in Sources */,
+				39C572D01F40D06000F46862 /* DGearsHoldClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
