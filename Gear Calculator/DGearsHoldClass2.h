@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface DGearsHoldClass2 : NSObject
-@property (strong, nonatomic) NSMutableArray* DGearsHold;
+@property (strong, nonatomic) NSArray* DGearsHold;
 -(void)start;
 @end

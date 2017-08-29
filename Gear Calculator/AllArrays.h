@@ -9,15 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface AllArrays : NSObject
-@property (strong, nonatomic) NSMutableArray* Gears;
-@property (strong, nonatomic) NSMutableArray* GearsHold;
+@property (strong, nonatomic) NSArray* Gears;
+@property (strong, nonatomic) NSArray* GearsHold;
 @property (strong, nonatomic) NSMutableArray* TGearsHold;
 @property (strong, nonatomic) NSMutableArray* QGearsHold;
-@property (strong, nonatomic) NSMutableArray* allReduc;
+@property (strong, nonatomic) NSArray* allReduc;
 @property (strong, nonatomic) NSMutableArray* TallReduc;
 @property (strong, nonatomic) NSMutableArray* QallReduc;
-@property (strong, nonatomic) NSMutableArray* DogGears;
+@property (strong, nonatomic) NSArray* DogGears;
 @property (strong, nonatomic) NSMutableArray* DogGearsReduc;
 -(void)start;
--(void)begin;
 @end

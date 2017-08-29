@@ -48,15 +48,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     AllArrays *AllA = [[AllArrays alloc] init];
-    [AllA begin];
     [AllA start];
     DallReducClass *DRC = [[DallReducClass alloc] init];
-    [DRC start];
+    
     DGearsHoldClass *DGH = [[DGearsHoldClass alloc] init];
     [DGH start];
     DGearsHoldClass2 *DGH2 = [[DGearsHoldClass2 alloc] init];
     [DGH2 start];
+    
+    NSLog(@"%lu", (unsigned long)[DRC DallReducMeth].count);
+    NSLog(@"%lu", (unsigned long)AllA.allReduc.count);
     
     // Do any additional setup after loading the view, typically from a nib.
 
@@ -178,6 +181,14 @@
         }
         [self.DogGearsReduc addObject:sta];
     }
+    for(int k = 0;k<4;k++){
+        for (int i = 0; i <[[self.DogGearsReduc objectAtIndex:k] count]; i++) {
+            
+            str = [str stringByAppendingString:[NSString stringWithFormat:@"%@,",[[self.DogGearsReduc objectAtIndex:k] objectAtIndex:i]]];
+        }
+        str = [str stringByAppendingString:@"},{"];
+    }
+    NSLog(@"%@", str);
     
     //for (int i = 0; i<[[self.DogGearsReduc objectAtIndex:0] count]; i++) {NSLog(@"%d - %@", i, [[self.DogGearsReduc objectAtIndex:0] objectAtIndex:i]);}
 
@@ -212,7 +223,6 @@
     AllArrays *AllA = [[AllArrays alloc] init];
     [AllA start];
     DallReducClass *DRC = [[DallReducClass alloc] init];
-    [DRC start];
 
     [self.closest removeAllObjects];
     double closRed = NSIntegerMax;
@@ -243,10 +253,10 @@
                 
                 case 2:
                 
-                for(int i = 0; i<[DRC.DallReduc count]; i++){
-                    if(fabs([[DRC.DallReduc objectAtIndex:i] doubleValue] - reduction)<=closRed){
-                        closRed = fabs([[DRC.DallReduc objectAtIndex:i] doubleValue] - reduction);
-                        [self.closest addObject:[NSString stringWithFormat:@"%f - (%@,%@), (%@,%@)", 1/fabs([[DRC.DallReduc objectAtIndex:i] doubleValue]), [self.DGearsHold objectAtIndex:i*4], [self.DGearsHold objectAtIndex:i*4+1],[self.DGearsHold objectAtIndex:i*4+2],[self.DGearsHold objectAtIndex:i*4+3]]];
+                for(int i = 0; i<[[DRC DallReducMeth] count]; i++){
+                    if(fabs([[[DRC DallReducMeth] objectAtIndex:i] doubleValue] - reduction)<=closRed){
+                        closRed = fabs([[[DRC DallReducMeth] objectAtIndex:i] doubleValue] - reduction);
+                        [self.closest addObject:[NSString stringWithFormat:@"%f - (%@,%@), (%@,%@)", 1/fabs([[[DRC DallReducMeth] objectAtIndex:i] doubleValue]), [self.DGearsHold objectAtIndex:i*4], [self.DGearsHold objectAtIndex:i*4+1],[self.DGearsHold objectAtIndex:i*4+2],[self.DGearsHold objectAtIndex:i*4+3]]];
                         
                     } else{
                         break;
@@ -355,13 +365,13 @@
                         toothSum = [[AllA.Gears objectAtIndex:j] intValue];
                         ratioTwo = [self findSecGearRatio:toothSum :i];
                         
-                        for(int k = 0; k<[DRC.DallReduc count]; k++){
+                        for(int k = 0; k<[[DRC DallReducMeth] count]; k++){
                             
-                            if(fabs([[[self.DogGearsReduc objectAtIndex:i] objectAtIndex:j] doubleValue]*[[DRC.DallReduc objectAtIndex:k] doubleValue] - reductionOne) + fabs(ratioTwo*[[DRC.DallReduc objectAtIndex:k] doubleValue]-reductionTwo) <= closRed && ratioTwo!= NSIntegerMax){
-                                closRed = fabs([[[self.DogGearsReduc objectAtIndex:i] objectAtIndex:j] doubleValue]*[[DRC.DallReduc objectAtIndex:k] doubleValue] - reductionOne) + fabs(ratioTwo*[[DRC.DallReduc objectAtIndex:k] doubleValue]-reductionTwo);
+                            if(fabs([[[self.DogGearsReduc objectAtIndex:i] objectAtIndex:j] doubleValue]*[[[DRC DallReducMeth] objectAtIndex:k] doubleValue] - reductionOne) + fabs(ratioTwo*[[[DRC DallReducMeth] objectAtIndex:k] doubleValue]-reductionTwo) <= closRed && ratioTwo!= NSIntegerMax){
+                                closRed = fabs([[[self.DogGearsReduc objectAtIndex:i] objectAtIndex:j] doubleValue]*[[[DRC DallReducMeth] objectAtIndex:k] doubleValue] - reductionOne) + fabs(ratioTwo*[[[DRC DallReducMeth] objectAtIndex:k] doubleValue]-reductionTwo);
                                 
-                                finalReducOne = [[[self.DogGearsReduc objectAtIndex:i] objectAtIndex:j] doubleValue]*[[DRC.DallReduc objectAtIndex:k] doubleValue];
-                                finalReducTwo = ratioTwo*[[DRC.DallReduc objectAtIndex:k] doubleValue];
+                                finalReducOne = [[[self.DogGearsReduc objectAtIndex:i] objectAtIndex:j] doubleValue]*[[[DRC DallReducMeth] objectAtIndex:k] doubleValue];
+                                finalReducTwo = ratioTwo*[[[DRC DallReducMeth] objectAtIndex:k] doubleValue];
 
                                 [self.closest addObject:[NSString stringWithFormat:@"%f - (%@,%@), (%@,%@), (%@,%@) \n%f - (%ld,%ld)",1/finalReducOne,[self.DogGears objectAtIndex:i],[AllA.Gears objectAtIndex:j],[self.DGearsHold objectAtIndex:(k*4)],[self.DGearsHold objectAtIndex:(k*4)+1], [self.DGearsHold objectAtIndex:(k*4)+2],[self.DGearsHold objectAtIndex:(k*4)+3], 1/finalReducTwo, (long)self.secondDogGear, (long)self.secondRegGear]];
 

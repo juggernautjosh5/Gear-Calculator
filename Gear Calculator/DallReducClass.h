@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface DallReducClass : NSObject
-@property (strong, nonatomic) NSMutableArray* DallReduc;
--(void)start;
+{
+    NSArray *DallReduc;
+}
+//@property (strong, nonatomic) NSArray* DallReduc;
+-(id)init;
+-(NSArray*)DallReducMeth;
 @end
